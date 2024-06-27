@@ -1,15 +1,18 @@
-import React, { RefObject } from 'react'
+import React from 'react'
 import { FiCopy } from 'react-icons/fi'
 
-export default function CopyButton({
-  element,
-}: Readonly<{
-  element: RefObject<SVGElement | HTMLElement | null>
-}>) {
-  const handleClick = async () => {
-    if (!element.current) return
+interface Props {
+  getContent: () => string | undefined
+  label: string
+}
 
-    const textToCopy = element.current.innerHTML
+export default function CopyButton({ getContent, label }: Props) {
+  const handleClick = async () => {
+    const textToCopy = getContent()
+
+    if (!textToCopy) {
+      return
+    }
 
     try {
       await navigator.clipboard.writeText(textToCopy)
@@ -23,7 +26,7 @@ export default function CopyButton({
       onClick={handleClick}
       className="flex items-center justify-center p-2 bg-stone-300 rounded-md hover:bg-stone-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 transition-colors"
     >
-      <FiCopy className="mr-2" /> Copy SVG
+      <FiCopy className="mr-2" /> {label}
     </button>
   )
 }

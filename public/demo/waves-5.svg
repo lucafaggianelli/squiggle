@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" id="waves" viewBox="0 0 800 300" preserveAspectRatio="xMinYMin slice"><defs></defs><rect width="800" height="300" fill="#e2db0b"></rect><g><path d="
+    M 0,0
+    C 0 150, 0 150, 0 300" stroke-opacity="1" stroke-width="3.8000000000000003" stroke="#cf1b1b" fill="none"></path><path d="
+    M 49,0
+    C 60.03515625 144.85294117647058, 60.03515625 144.85294117647058, 49 300" stroke-opacity="1" stroke-width="3.8000000000000003" stroke="#be1a28" fill="none"></path><path d="
+    M 98,0
+    C 120.0703125 139.70588235294116, 120.0703125 139.70588235294116, 98 300" stroke-opacity="1" stroke-width="3.8000000000000003" stroke="#ae1936" fill="none"></path><path d="
+    M 147,0
+    C 180.10546875 134.55882352941177, 180.10546875 134.55882352941177, 147 300" stroke-opacity="1" stroke-width="3.8000000000000003" stroke="#9d1743" fill="none"></path><path d="
+    M 196,0
+    C 240.140625 129.41176470588235, 240.140625 129.41176470588235, 196 300" stroke-opacity="1" stroke-width="3.8000000000000003" stroke="#8c1651" fill="none"></path><path d="
+    M 245,0
+    C 300.17578125 124.26470588235293, 300.17578125 124.26470588235293, 245 300" stroke-opacity="1" stroke-width="3.8000000000000003" stroke="#7b155e" fill="none"></path><path d="
+    M 294,0
+    C 360.2109375 119.11764705882352, 360.2109375 119.11764705882352, 294 300" stroke-opacity="1" stroke-width="3.8000000000000003" stroke="#6b146c" fill="none"></path><path d="
+    M 343,0
+    C 420.24609375 113.97058823529412, 420.24609375 113.97058823529412, 343 300" stroke-opacity="1" stroke-width="3.8000000000000003" stroke="#5a1279" fill="none"></path><path d="
+    M 392,0
+    C 480.28125 108.8235294117647, 480.28125 108.8235294117647, 392 300" stroke-opacity="1" stroke-width="3.8000000000000003" stroke="#491187" fill="none"></path><path d="
+    M 441,0
+    C 540.31640625 103.67647058823528, 540.31640625 103.67647058823528, 441 300" stroke-opacity="1" stroke-width="3.8000000000000003" stroke="#391094" fill="none"></path><path d="
+    M 490,0
+    C 600.3515625 98.52941176470587, 600.3515625 98.52941176470587, 490 300" stroke-opacity="1" stroke-width="3.8000000000000003" stroke="#280fa2" fill="none"></path><path d="
+    M 539,0
+    C 660.38671875 93.38235294117646, 660.38671875 93.38235294117646, 539 300" stroke-opacity="1" stroke-width="3.8000000000000003" stroke="#170eaf" fill="none"></path></g></svg>

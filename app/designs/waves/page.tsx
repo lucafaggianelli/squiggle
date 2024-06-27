@@ -161,7 +161,16 @@ export default function Waves() {
         <div className="container max-w-screen-lg mx-auto flex justify-between items-center">
           <div>My design</div>
 
-          <CopyButton element={ref} />
+          <div className='flex gap-4'>
+            <CopyButton
+              label="Copy SVG"
+              getContent={() => ref.current?.innerHTML}
+            />
+            <CopyButton
+              label="Copy params"
+              getContent={() => JSON.stringify(params)}
+            />
+          </div>
         </div>
       </nav>
 
