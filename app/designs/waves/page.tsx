@@ -22,7 +22,7 @@ interface Props {
   wavesColors?: string[]
 }
 
-export const generateWaves = ({
+const generateWaves = ({
   backgroundColor = '#7b996c',
   container,
   curveDirection = { x: -5, y: -2 },
@@ -161,7 +161,7 @@ export default function Waves() {
         <div className="container max-w-screen-lg mx-auto flex justify-between items-center">
           <div>My design</div>
 
-          <div className='flex gap-4'>
+          <div className="flex gap-4">
             <CopyButton
               label="Copy SVG"
               getContent={() => ref.current?.innerHTML}
