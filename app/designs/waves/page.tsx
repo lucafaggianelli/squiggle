@@ -128,15 +128,20 @@ export default function Waves() {
     if (typeof window !== 'undefined' && !paneRef.current) {
       // Initialize Tweakpane
       paneRef.current = new Pane({
-        container: document.getElementById('controls'),
+        container: document.getElementById('controls')!,
       })
 
       // Add parameters to Tweakpane
       for (const key in params) {
-        paneRef.current.addBinding(defaultParams, key, options[key])
+        paneRef.current.addBinding(
+          defaultParams,
+          key as keyof typeof params,
+          options[key]
+        )
       }
 
       paneRef.current.on('change', ({ target, value }) => {
+        // @ts-ignore: target.key doesn't exist, but it does
         setParams((prev) => ({ ...prev, [target.key]: value as any }))
       })
     }
