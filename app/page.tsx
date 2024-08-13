@@ -1,5 +1,6 @@
 import Image from 'next/image'
 
+import { basePath } from '@/next.config.mjs'
 import PreviewCard from '@/components/PreviewCard'
 
 interface DemoItem {
@@ -38,7 +39,7 @@ export default function Home() {
           >
             <Image
               className="h-full"
-              src={`/demo/${demo.image}`}
+              src={`${basePath}/demo/${demo.image}`}
               alt={`${demo.title} preview`}
               width={800}
               height={300}

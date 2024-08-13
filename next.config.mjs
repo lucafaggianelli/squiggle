@@ -1,11 +1,10 @@
-const basePath = '/squiggle'
+export const basePath = process.env.NODE_ENV === 'production' ? '/squiggle' : ''
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   basePath,
   output: 'export',
   images: {
-    path: `${basePath}/_next/image`,
     unoptimized: true,
   },
 }
