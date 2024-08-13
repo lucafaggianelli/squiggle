@@ -2,17 +2,21 @@
 
 import { SVG } from '@svgdotjs/svg.js'
 import { useEffect, useRef, useState } from 'react'
+import { Pane } from 'tweakpane'
 
+import CopyButton from '@/components/CopyButton'
 import { generateColorRange } from '@/design/colors'
 import { generateNoise } from '@/design/noise'
-import { Pane } from 'tweakpane'
-import CopyButton from '@/components/CopyButton'
+import { Path } from '@/design/path'
+import { directionVector } from '@/design/utils'
 
 interface Props {
   backgroundColor?: string
   container: HTMLElement
   curveDirection?: { x: number; y: number }
+  curveDirection2?: { x: number; y: number }
   extension?: number
+  fade?: boolean
   height?: number
   noise?: boolean
   opacity?: number
@@ -26,7 +30,9 @@ const generateWaves = ({
   backgroundColor = '#7b996c',
   container,
   curveDirection = { x: -5, y: -2 },
+  curveDirection2 = { x: -5, y: -2 },
   extension = 1,
+  fade = false,
   height = 300,
   noise = false,
   opacity = 0.7,
@@ -45,7 +51,9 @@ const generateWaves = ({
 
   const defs = draw.defs()
 
-  const count = (width / spacing) * extension
+  const finalWidth = width * extension
+
+  const count = finalWidth / spacing
 
   const colors = generateColorRange(wavesColors[0], wavesColors[1], count)
 
@@ -60,17 +68,34 @@ const generateWaves = ({
 
   const g = draw.group()
 
+  if (fade) {
+    const gradient = draw
+      .gradient('linear', (add) => {
+        add.stop(0, '#fff', 1)
+        add.stop(0.8, '#fff', 0)
+      })
+      .attr(directionVector(270))
+
+    const mask = draw.mask().add(draw.rect(width, height).fill(gradient))
+
+    g.maskWith(mask)
+  }
+
   for (let i = 0; i < count; i++) {
-    var path = g
-      .path(
-        `
-    M ${i * spacing},0
-    C ${i * spacing + curveDirection.x * i} ${
-          height / 2 + i * curveDirection.y
-        }, ${i * spacing + curveDirection.x * i} ${
-          height / 2 + i * curveDirection.y
-        }, ${i * spacing} ${height}`
+    const position = i * spacing
+
+    const p = new Path()
+      .M(position, 0)
+      .C(
+        position + curveDirection.x * i,
+        height / 2 + i * curveDirection.y,
+        position + curveDirection2.x * i,
+        height / 2 + i * curveDirection2.y,
+        position,
+        height
       )
+
+    g.path(p.d)
       .stroke({ color: colors[i], width: thickness, opacity })
       .fill({ color: 'none' })
   }
@@ -92,6 +117,7 @@ export default function Waves() {
       max: 2,
       step: 0.05,
     },
+    fade: { value: false },
     noise: { value: true },
     opacity: { value: 0.7, min: 0, max: 1, step: 0.05 },
     spacing: { value: 15, min: 1, max: 100, step: 1 },
@@ -101,6 +127,11 @@ export default function Waves() {
     wavesColorTo: { value: '#bbb', label: 'Color To' },
     curveDirection: {
       value: { x: -5, y: -2 },
+      picker: 'inline',
+      expanded: true,
+    },
+    curveDirection2: {
+      value: { x: -3, y: 2 },
       picker: 'inline',
       expanded: true,
     },
