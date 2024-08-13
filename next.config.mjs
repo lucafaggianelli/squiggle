@@ -1,4 +1,13 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+const basePath = '/squiggle'
 
-export default nextConfig;
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  basePath,
+  output: 'export',
+  images: {
+    path: `${basePath}/_next/image`,
+    unoptimized: true,
+  },
+}
+
+export default nextConfig
