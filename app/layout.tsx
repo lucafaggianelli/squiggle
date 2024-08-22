@@ -17,6 +17,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          defer
+          data-domain="lucafaggianelli.com/squiggle"
+          src="https://plausible.io/js/script.js"
+        />
+      </head>
       <body className={inter.className + ' antialiased bg-[#efeee8]'}>
         {children}
       </body>
